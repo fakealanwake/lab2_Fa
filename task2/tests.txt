@@ -1,0 +1,62 @@
+printf '3 Ivan Petrov 1500.50\n1 Anna Smirnova 1500.50\n2 Boris Ivanov 900\n4 Anna Smirnova 1500.50\n5 Zoe Adams 2000.75\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"; cat output.txt
+./app input.txt -d output.txt; echo "код: $?"; cat output.txt
+./app input.txt /a output.txt; echo "код: $?"; cat output.txt
+./app input.txt /d output.txt; echo "код: $?"; cat output.txt
+
+printf '1 Ivan Petrov 0\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"; cat output.txt
+printf '  7   Ivan   Petrov   10.5  \n\n\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"; cat output.txt
+
+
+printf '1 Ivan Petrov 100\n' > input.txt
+./app; echo "код: $?"
+./app input.txt -a; echo "код: $?"
+./app input.txt -a output.txt extra; echo "код: $?"
+./app input.txt -a input.txt; echo "код: $?"
+./app input.txt -x output.txt; echo "код: $?"
+./app input.txt -ad output.txt; echo "код: $?"
+./app input.txt a output.txt; echo "код: $?"
+./app input.txt - output.txt; echo "код: $?"
+./app input.txt -A output.txt; echo "код: $?"
+./app input.txt -a /no_such_dir/output.txt; echo "код: $?"
+rm -f input.txt
+./app input.txt -a output.txt; echo "код: $?"
+
+
+printf '1 Ivan Petrov\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov 100 extra\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan\nPetrov 100\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Iv4n Petrov 100\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov -5\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '-1 Ivan Petrov 100\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov 1e5\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov nan\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov 1.2.3\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov .\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf 'abc Ivan Petrov 100\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '99999999999999999999999 Ivan Petrov 100\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 Ivan Petrov 100\nбред\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '1 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Petrov 100\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+ls output.txt
+
+
+: > input.txt
+./app input.txt -a output.txt; echo "код: $?"
+printf '\n   \n\n' > input.txt
+./app input.txt -a output.txt; echo "код: $?"

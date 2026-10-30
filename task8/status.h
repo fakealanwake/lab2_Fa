@@ -1,0 +1,13 @@
+#ifndef STATUS_H
+#define STATUS_H
+
+typedef enum {
+    SUCCESS = 0,
+    ERROR_INVALID_ARGUMENTS,
+    ERROR_MEMORY_ALLOCATION,
+    ERROR_INVALID_BASE,
+    ERROR_INVALID_DIGIT,
+    ERROR_OVERFLOW
+} status;
+
+#endif

@@ -1,0 +1,31 @@
+./app -l hello
+./app -l ""
+./app -l "hello world"
+./app -r hello
+./app -r ""
+./app -r a
+./app -r abcba
+./app -u abcdefg
+./app -u a
+./app -u ab
+./app -u ABCD
+./app -u 1a2b3c
+./app -u ""
+./app -n 'a1!b2?c3'
+./app -n 12345
+./app -n abcXYZ
+./app -n '!@#'
+./app -n 'Z9y-X8w_'
+./app -n ""
+./app -c abc 7
+./app -c ab 42 cd ef gh
+./app -c ab 4294967295 cd
+./app -x abc
+./app l abc
+./app -ll abc
+./app - abc
+./app -l a b
+./app -r a b
+./app -c abc
+./app -c abc -5 x
+./app -c abc 12a x

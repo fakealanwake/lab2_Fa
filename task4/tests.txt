@@ -1,0 +1,23 @@
+printf '4 5\na 2 3\nb 3 4\nc 4 5\nd 5 6\n' | ./app; echo "код: $?"
+printf '1 1\na 5 10\n' | ./app; echo "код: $?"
+printf '2 0\na 1 5\nb 2 7\n' | ./app; echo "код: $?"
+printf '3 2\nA 2 5\nB 2 5\nC 3 5\n' | ./app; echo "код: $?"
+printf '3 5\nx 2 3\ny 2 3\nz 1 3\n' | ./app; echo "код: $?"
+
+printf '2 5\na 2 4\na 3 9\n' | ./app; echo "код: $?"
+printf '2 5\na 0 4\nb 1 1\n' | ./app; echo "код: $?"
+printf '2 5\na 2 4 extra\n' | ./app; echo "код: $?"
+printf '1 5\n' | ./app; echo "код: $?"
+printf '0 5\na 1 1\n' | ./app; echo "код: $?"
+printf '2 5\n-1 x 1\n' | ./app; echo "код: $?"
+printf '2 x\na 1 1\n' | ./app; echo "код: $?"
+printf '\n' | ./app; echo "код: $?"
+
+printf '23 10\n' > input.txt
+i=1
+while [ "$i" -le 23 ]; do
+    printf 'f%s 1 1\n' "$i" >> input.txt
+    i=$((i + 1))
+done
+./app < input.txt; echo "код: $?"
+rm -f input.txt
